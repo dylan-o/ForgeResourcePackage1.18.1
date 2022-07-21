@@ -118,13 +118,8 @@ public class BaseMod {
         @SubscribeEvent
         public static void registerBlocks(final RegistryEvent.Register<Block> event) {
             LOGGER.info("Registering Blocks");
-
-
-//            event.getRegistry().register(BlockMod.CASTLE_WALL);
             BlockMod.registerBlocks(event);
-
         }
-
 
         /**
          * Registers item during mod setup

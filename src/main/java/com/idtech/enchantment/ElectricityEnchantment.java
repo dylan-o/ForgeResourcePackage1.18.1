@@ -1,20 +1,11 @@
 package com.idtech.enchantment;
 
 import com.idtech.Utils;
-import com.idtech.world.WorldMod;
-import net.minecraft.client.renderer.EffectInstance;
-import net.minecraft.world.effect.MobEffectInstance;
-import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.entity.LivingEntity;
-import net.minecraft.world.inventory.Slot;
-import net.minecraft.world.item.alchemy.Potions;
 import net.minecraft.world.item.enchantment.Enchantment;
 import net.minecraft.world.item.enchantment.EnchantmentCategory;
-import net.minecraft.world.level.Level;
-import net.minecraft.world.level.LevelAccessor;
-import net.minecraft.world.level.WorldGenLevel;
 
 public class ElectricityEnchantment extends Enchantment {
 
@@ -51,11 +42,11 @@ public class ElectricityEnchantment extends Enchantment {
      * Called whenever a mob is damaged with an item that has this enchantment on it.
      */
     public void doPostAttack(LivingEntity user, Entity target, int level) {
-        // When a weapon with this enchantment is used to hit a mob, it will give the mob the wither effect
+        // When a weapon with this enchantment is used to hit a mob, it will strike the mob with lightning
         if (target instanceof LivingEntity) {
             LivingEntity livingentity = (LivingEntity)target;
 
-            // Give the mob the Wither effect (higher level enchantments give longer durations)
+            // Summon lightning bolt
             Utils.strikeLightning(user.level, target.getOnPos());
         }
     }
