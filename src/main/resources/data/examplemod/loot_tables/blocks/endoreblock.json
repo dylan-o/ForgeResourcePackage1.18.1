@@ -7,7 +7,7 @@
       "entries": [
         {
           "type": "minecraft:item",
-          "name": "examplemod:endore"
+          "name": "examplemod:endoreblock"
         }
       ],
       "conditions": [
