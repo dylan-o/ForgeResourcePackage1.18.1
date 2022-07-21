@@ -1,9 +1,10 @@
 package com.idtech.entity;
 
-import com.idtech.entity.projectiles.ExplosionProjectile;
-import com.idtech.entity.projectiles.LaunchProjectile;
-import net.minecraft.client.Minecraft;
-import net.minecraft.client.renderer.entity.ThrownItemRenderer;
+import com.idtech.entity.ghost.GhostEntity;
+import com.idtech.entity.ghost.GhostModel;
+import com.idtech.entity.ghost.GhostRenderFactory;
+import com.idtech.entity.jungle_bat.JungleBatEntity;
+import com.idtech.entity.jungle_bat.JungleBatRenderFactory;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.item.Item;
 import net.minecraftforge.client.event.EntityRenderersEvent;
@@ -15,41 +16,33 @@ public class EntityMod {
 
     @SubscribeEvent
     public static void registerEntities(final RegistryEvent.Register<EntityType<?>> event){
-        event.getRegistry().register(GrumboBoy.TYPE);
-        event.getRegistry().register(LatteChicken.TYPE);
-        event.getRegistry().register(EvilRabbit.TYPE);
-        event.getRegistry().register(ZomboEntity.TYPE);
-
-        event.getRegistry().register(ExplosionProjectile.TYPE);
+        event.getRegistry().register(GhostEntity.TYPE);
+        event.getRegistry().register(JungleBatEntity.TYPE);
     }
     @SubscribeEvent
     public static void registerEntityEggs(final RegistryEvent.Register<Item> event) {
-        event.getRegistry().register(GrumboBoy.EGG);
-        event.getRegistry().register(LatteChicken.EGG);
-        event.getRegistry().register(EvilRabbit.EGG);
-        event.getRegistry().register(ZomboEntity.EGG);
-
+        event.getRegistry().register(GhostEntity.EGG);
+        event.getRegistry().register(JungleBatEntity.EGG);
     }
     @SubscribeEvent
     public static void entityRenderers(final EntityRenderersEvent.RegisterRenderers event){
-        event.registerEntityRenderer(GrumboBoy.TYPE, GrumboBoyRenderFactory.INSTANCE);
-        event.registerEntityRenderer(LatteChicken.TYPE, LatteChickenRenderFactory.INSTANCE);
-        event.registerEntityRenderer(EvilRabbit.TYPE, EvilRabbitRenderFactory.INSTANCE);
-        event.registerEntityRenderer(ZomboEntity.TYPE, ZomboRenderFactory.INSTANCE);
-
-        event.registerEntityRenderer(ExplosionProjectile.TYPE, (m) -> { return new ThrownItemRenderer<>(m, 1.0f, true);});
-        event.registerEntityRenderer(LaunchProjectile.TYPE, (m) -> { return new ThrownItemRenderer<>(m, 1.0f, true);});
-
+        event.registerEntityRenderer(GhostEntity.TYPE, GhostRenderFactory.INSTANCE);
+        event.registerEntityRenderer(JungleBatEntity.TYPE, JungleBatRenderFactory.INSTANCE);
     }
-
-    // this is different than in 1.16 but everything else is the same
-    // I do think this makes more sense than the other way but alas change is usually hard.
     @SubscribeEvent
     public static void onAttributeCreate(EntityAttributeCreationEvent event) {
-        event.put(GrumboBoy.TYPE, GrumboBoy.createAttributes().build());
-        event.put(LatteChicken.TYPE, LatteChicken.createAttributes().build());
-        event.put(EvilRabbit.TYPE, EvilRabbit.createAttributes().build());
-        event.put(ZomboEntity.TYPE, ZomboEntity.createAttributes().build());
+        //This line is necessary even if the createAttributes method wasn't overridden
+        event.put(GhostEntity.TYPE, GhostEntity.createAttributes().build());
+        event.put(JungleBatEntity.TYPE, JungleBatEntity.createAttributes().build());
+    }
+    @SubscribeEvent
+    public static void registerLayerDefinition(EntityRenderersEvent.RegisterLayerDefinitions event) {
+
+        //LayerDefinition ghostBodyLayer = GhostModel.createBodyLayer();
+        //ImmutableMap.Builder<ModelLayerLocation, LayerDefinition> builder = ImmutableMap.builder();
+
+        //register LayerDefinitions (only needed for mobs with custom models)
+        event.registerLayerDefinition(GhostModel.LAYER_LOCATION,  GhostModel::createBodyLayer);
     }
 
 }

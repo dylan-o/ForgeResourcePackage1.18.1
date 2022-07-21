@@ -2,13 +2,12 @@ package com.idtech.world;
 
 import com.idtech.BaseMod;
 import com.idtech.block.BlockMod;
-import com.idtech.entity.EvilRabbit;
-import net.minecraft.core.Registry;
-import net.minecraft.data.BuiltinRegistries;
+import com.idtech.entity.ghost.GhostEntity;
+import com.idtech.entity.jungle_bat.JungleBatEntity;
 import net.minecraft.data.worldgen.features.FeatureUtils;
 import net.minecraft.data.worldgen.features.OreFeatures;
 import net.minecraft.data.worldgen.placement.PlacementUtils;
-import net.minecraft.resources.ResourceKey;
+import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.MobCategory;
 import net.minecraft.world.level.biome.Biome;
 import net.minecraft.world.level.biome.MobSpawnSettings;
@@ -17,103 +16,96 @@ import net.minecraft.world.level.levelgen.GenerationStep;
 import net.minecraft.world.level.levelgen.VerticalAnchor;
 import net.minecraft.world.level.levelgen.feature.ConfiguredFeature;
 import net.minecraft.world.level.levelgen.feature.Feature;
-import net.minecraft.world.level.levelgen.feature.OreFeature;
 import net.minecraft.world.level.levelgen.feature.configurations.OreConfiguration;
 import net.minecraft.world.level.levelgen.placement.*;
 import net.minecraft.world.level.levelgen.structure.templatesystem.BlockMatchTest;
 import net.minecraft.world.level.levelgen.structure.templatesystem.RuleTest;
-import net.minecraftforge.common.BiomeDictionary;
-import net.minecraftforge.common.BiomeManager;
 import net.minecraftforge.common.world.BiomeGenerationSettingsBuilder;
 import net.minecraftforge.common.world.MobSpawnSettingsBuilder;
 import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.event.world.BiomeLoadingEvent;
+import net.minecraftforge.eventbus.api.EventPriority;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
-import net.minecraftforge.registries.ForgeRegistryEntry;
 
 import java.util.List;
-import java.util.function.Supplier;
 
 @Mod.EventBusSubscriber(modid = BaseMod.MODID)
 public class WorldMod {
 
-    // Needed to create "replaceables" for ore feature.
+    // Needed to create "replaceables" for end ore feature.
     public static final RuleTest ENDSTONE = new BlockMatchTest(Blocks.END_STONE);
 
     // Testing Ore Generation (https://fabricmc.net/wiki/tutorial:ores)
-    private static ConfiguredFeature<?, ?> OVERWORLD_FIRE_CRYSTAL_FEATURE = new ConfiguredFeature(
+    public static ConfiguredFeature<?, ?> CASTLE_WALL_TEST_FEATURE = new ConfiguredFeature(
             Feature.ORE, new OreConfiguration(
             OreFeatures.STONE_ORE_REPLACEABLES,
-            BlockMod.FIRE_CRYSTAL_BLOCK.defaultBlockState(),
-            9));
+            BlockMod.CASTLE_WALL.defaultBlockState(),
+            12));
 
-    public static PlacedFeature OVERWORLD_FIRE_CRYSTAL_PLACED_FEATURE = OVERWORLD_FIRE_CRYSTAL_FEATURE.placed(
+    public static PlacedFeature CASTLE_WALL_TEST_PLACED_FEATURE = CASTLE_WALL_TEST_FEATURE.placed(
             List.of(
-                    CountPlacement.of(20), // Number of veins per chunk
-                    InSquarePlacement.spread(), //Horizontal spreading
-                    HeightRangePlacement.triangle(VerticalAnchor.absolute(-80), VerticalAnchor.absolute(80)),
-                    BiomeFilter.biome()
-            ));
-
-    public static ConfiguredFeature<?, ?> END_END_ORE_FEATURE = new ConfiguredFeature(
-            Feature.ORE, new OreConfiguration(
-            ENDSTONE,
-            BlockMod.END_ORE_BLOCK.defaultBlockState(),
-            9));
-
-    public static PlacedFeature END_END_ORE_PLACED_FEATURE = END_END_ORE_FEATURE.placed(
-            List.of(
-                    CountPlacement.of(10),
+                    CountPlacement.of(150),
                     InSquarePlacement.spread(),
-                    HeightRangePlacement.triangle(VerticalAnchor.absolute(-80), VerticalAnchor.absolute(80)),
+                    HeightRangePlacement.uniform(VerticalAnchor.absolute(-80), VerticalAnchor.absolute(80)),
                     BiomeFilter.biome()
             ));
 
     // For some reason you need to create this resource key to register biomes idk
     //private static ResourceKey<Biome> BASIC_TESTER = ResourceKey.create(Registry.BIOME_REGISTRY, CustomBiomes.BASIC_TESTER.getRegistryName());
-    private static ResourceKey<Biome> STORMFIELD_PLAINS = ResourceKey.create(Registry.BIOME_REGISTRY, StormfieldPlainsBiome.INSTANCE.getRegistryName());
+    //private static ResourceKey<Biome> STORMFIELD_PLAINS = ResourceKey.create(Registry.BIOME_REGISTRY, StormfieldPlainsBiome.INSTANCE.getRegistryName());
 
     public static void registerBiomes(final RegistryEvent.Register<Biome> event){
         //register the biome itself
         //event.getRegistry().register(CustomBiomes.BASIC_TESTER);
-        event.getRegistry().register(StormfieldPlainsBiome.INSTANCE);
-
+        //event.getRegistry().register(StormfieldPlainsBiome.INSTANCE);
     }
 
 
     public static void setupBiomes()
     {
-        BiomeManager.addBiome(BiomeManager.BiomeType.WARM, new BiomeManager.BiomeEntry(STORMFIELD_PLAINS, 9999));
+        //BiomeManager.addBiome(BiomeManager.BiomeType.WARM, new BiomeManager.BiomeEntry(STORMFIELD_PLAINS, 9999));
     }
 
 
 
-    @SubscribeEvent
+    @SubscribeEvent(priority = EventPriority.HIGHEST)
     public static void addFeatures(BiomeLoadingEvent event) {
         Biome.BiomeCategory biomeCategory = event.getCategory();
         BiomeGenerationSettingsBuilder biomeGen = event.getGeneration();
         MobSpawnSettingsBuilder builder = event.getSpawns();
 
-        FeatureUtils.register("fire_crystal_feature", OVERWORLD_FIRE_CRYSTAL_FEATURE);
-        PlacementUtils.register("fire_crystal_feature", OVERWORLD_FIRE_CRYSTAL_PLACED_FEATURE);
+        FeatureUtils.register("castlewallfeature", CASTLE_WALL_TEST_FEATURE);
+        PlacementUtils.register("castlewallfeature", CASTLE_WALL_TEST_PLACED_FEATURE);
 
-        FeatureUtils.register("end_ore_feature", END_END_ORE_FEATURE);
-        PlacementUtils.register("end_ore_feature", END_END_ORE_PLACED_FEATURE);
 
-        if(event.getName().getPath().equals(STORMFIELD_PLAINS.location().getPath()))
+        if (event.getCategory() == Biome.BiomeCategory.MOUNTAIN)
         {
-            biomeGen.addFeature(GenerationStep.Decoration.UNDERGROUND_ORES, OVERWORLD_FIRE_CRYSTAL_PLACED_FEATURE);
-        }
-        else if (event.getCategory() == Biome.BiomeCategory.THEEND)
-        {
-            // Spawn end ore
-            biomeGen.addFeature(GenerationStep.Decoration.UNDERGROUND_ORES, END_END_ORE_PLACED_FEATURE);
+            biomeGen.addFeature(GenerationStep.Decoration.UNDERGROUND_ORES, CASTLE_WALL_TEST_PLACED_FEATURE);
         }
 
-        if(event.getCategory().equals(Biome.BiomeCategory.BEACH))
-        {
+        // MOB SPAWNING:
+        // works for custom mobs and mobs already in the game
 
+        if (event.getCategory() == Biome.BiomeCategory.SWAMP)
+        {
+            // the 3 int parameters when calling SpawnerData are:
+            // Spawn weight (increase to have them spawn more often)
+            // Minimum group size
+            // Maximum group size
+            event.getSpawns().addSpawn(MobCategory.MONSTER,
+                    new MobSpawnSettings.SpawnerData(EntityType.ENDERMITE, 10, 2, 5));
+        }
+
+        if(event.getCategory() == Biome.BiomeCategory.JUNGLE){
+            event.getSpawns().addSpawn(MobCategory.AMBIENT,
+                    new MobSpawnSettings.SpawnerData(JungleBatEntity.TYPE, 1, 2, 8));
+        }
+
+        if (event.getCategory() == Biome.BiomeCategory.MESA)
+        {
+            event.getSpawns().addSpawn(MobCategory.MONSTER,
+                    new MobSpawnSettings.SpawnerData(GhostEntity.TYPE, 5, 1, 1));
         }
     }
 }
