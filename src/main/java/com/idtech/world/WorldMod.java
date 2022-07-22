@@ -38,6 +38,7 @@ public class WorldMod {
     public static final RuleTest ENDSTONE = new BlockMatchTest(Blocks.END_STONE);
 
     // Testing Ore Generation (https://fabricmc.net/wiki/tutorial:ores)
+    // last int is vein size, not sure if its maximum or average
     public static ConfiguredFeature<?, ?> CASTLE_WALL_TEST_FEATURE = new ConfiguredFeature(
             Feature.ORE, new OreConfiguration(
             OreFeatures.STONE_ORE_REPLACEABLES,
@@ -45,6 +46,7 @@ public class WorldMod {
             12));
 
     // natural ore generation
+    // CountPlacement.of(veinsPerChunk)
     public static PlacedFeature CASTLE_WALL_TEST_PLACED_FEATURE = CASTLE_WALL_TEST_FEATURE.placed(
             List.of(
                     CountPlacement.of(150),

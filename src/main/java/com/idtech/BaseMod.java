@@ -158,8 +158,8 @@ public class BaseMod {
             BaseMod.LOGGER.info("Registering Biomes");
             // Add biome registry calls here
             // event.getRegistry.register(<biome variable>)
-//            WorldMod.registerBiomes(event);
 
+            //WorldMod.registerBiomes(event);
         }
 
         @SubscribeEvent
@@ -170,6 +170,7 @@ public class BaseMod {
         // register mob attributes
         @SubscribeEvent
         public static void attributeRegister(EntityAttributeCreationEvent event) {
+
             EntityMod.onAttributeCreate(event);
         }
 
