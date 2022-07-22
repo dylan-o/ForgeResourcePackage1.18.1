@@ -23,6 +23,8 @@ public class ItemMod {
         event.getRegistry().register(GEL_ORE);
 
         // ITEMS
+        event.getRegistry().register(TeleportRodItem.INSTANCE);
+        event.getRegistry().register(LightningHammerItem.INSTANCE);
 
         // TOOLS
         event.getRegistry().register(GelPickaxeItem.INSTANCE);

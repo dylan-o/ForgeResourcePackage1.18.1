@@ -9,5 +9,7 @@
   "item.examplemod.jungle_bat_egg": "Jungle Bat Spawn Egg",
   "entity.examplemod.jungle_bat": "Jungle Bat",
   "item.examplemod.ghost_egg": "Ghost Spawn Egg",
-  "entity.examplemod.ghost": "Ghost"
+  "entity.examplemod.ghost": "Ghost",
+  "item.examplemod.lightninghammer": "Lightning Hammer",
+  "item.examplemod.teleportrod": "Teleport Rod"
 }
