@@ -8,13 +8,13 @@ import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.item.enchantment.Enchantment;
 import net.minecraft.world.item.enchantment.EnchantmentCategory;
 
-public class BlindFighterCurseEnchantment extends Enchantment {
+public class TunnelVisionCurseEnchantment extends Enchantment {
 
     // Set up Enchantment Instance
-    public static Enchantment INSTANCE = new BlindFighterCurseEnchantment(Rarity.UNCOMMON, EquipmentSlot.FEET).setRegistryName("blind_fighter");
+    public static Enchantment INSTANCE = new TunnelVisionCurseEnchantment(Rarity.UNCOMMON, EquipmentSlot.FEET).setRegistryName("blind_fighter");
 
     // Constructor
-    protected BlindFighterCurseEnchantment(Rarity rarityIn, EquipmentSlot... slots) {
+    protected TunnelVisionCurseEnchantment(Rarity rarityIn, EquipmentSlot... slots) {
         super(rarityIn, EnchantmentCategory.ARMOR_HEAD, slots);
     }
 

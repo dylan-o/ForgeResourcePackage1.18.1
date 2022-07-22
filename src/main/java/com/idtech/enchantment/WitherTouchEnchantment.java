@@ -11,6 +11,7 @@ import net.minecraft.world.item.alchemy.Potions;
 import net.minecraft.world.item.enchantment.Enchantment;
 import net.minecraft.world.item.enchantment.EnchantmentCategory;
 
+// Credit to github user Charlotteec
 public class WitherTouchEnchantment extends Enchantment {
 
     // Set up Enchantment Instance

@@ -79,7 +79,7 @@ public class WorldMod {
         PlacementUtils.register("castlewallfeature", CASTLE_WALL_TEST_PLACED_FEATURE);
 
 
-        if (event.getCategory() == Biome.BiomeCategory.MOUNTAIN)
+        if(event.getCategory() == Biome.BiomeCategory.MOUNTAIN)
         {
             biomeGen.addFeature(GenerationStep.Decoration.UNDERGROUND_ORES, CASTLE_WALL_TEST_PLACED_FEATURE);
         }
@@ -87,25 +87,30 @@ public class WorldMod {
         // MOB SPAWNING:
         // works for custom mobs and mobs already in the game
 
-        if (event.getCategory() == Biome.BiomeCategory.SWAMP)
-        {
+        if(event.getCategory() == Biome.BiomeCategory.JUNGLE){
             // the 3 int parameters when calling SpawnerData are:
             // Spawn weight (increase to have them spawn more often)
             // Minimum group size
             // Maximum group size
-            event.getSpawns().addSpawn(MobCategory.MONSTER,
-                    new MobSpawnSettings.SpawnerData(EntityType.ENDERMITE, 10, 2, 5));
-        }
-
-        if(event.getCategory() == Biome.BiomeCategory.JUNGLE){
             event.getSpawns().addSpawn(MobCategory.AMBIENT,
                     new MobSpawnSettings.SpawnerData(JungleBatEntity.TYPE, 1, 2, 8));
         }
 
-        if (event.getCategory() == Biome.BiomeCategory.MESA)
+        // example of spawning for a normal minecraft mob
+        if(event.getCategory() == Biome.BiomeCategory.PLAINS){
+            event.getSpawns().addSpawn(MobCategory.CREATURE,
+                    new MobSpawnSettings.SpawnerData(EntityType.OCELOT, 5, 1, 3));
+        }
+
+        if(event.getCategory() == Biome.BiomeCategory.MESA)
         {
             event.getSpawns().addSpawn(MobCategory.MONSTER,
                     new MobSpawnSettings.SpawnerData(GhostEntity.TYPE, 5, 1, 1));
+        }
+
+        if(event.getCategory() == Biome.BiomeCategory.THEEND){
+            event.getSpawns().addSpawn(MobCategory.MONSTER,
+                    new MobSpawnSettings.SpawnerData(GhostEntity.TYPE, 2, 1, 1));
         }
     }
 }

@@ -27,7 +27,7 @@ public class GhostEntity extends Ghast {
             EntityType.Builder.of(GhostEntity::new, MobCategory.MONSTER)
                     .build("ghost")
                     .setRegistryName(BaseMod.MODID, "ghost");
-    public static Item EGG = EntityUtils.buildEntitySpawnEgg(TYPE, 0xaa0000, 0xaa0000);
+    public static Item EGG = EntityUtils.buildEntitySpawnEgg(TYPE, 0xff3399, 0x1a000d);
     protected GhostEntity(EntityType<? extends Ghast> type, Level level) {
         super(type, level);
     }
