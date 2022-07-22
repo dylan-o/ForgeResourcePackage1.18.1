@@ -1,8 +1,6 @@
 package com.idtech.block;
 
 import com.idtech.BaseMod;
-import net.minecraft.core.Registry;
-import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.Item;
