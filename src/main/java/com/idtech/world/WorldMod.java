@@ -30,6 +30,7 @@ import net.minecraftforge.fml.common.Mod;
 
 import java.util.List;
 
+// Use this class for natural ore generation and mob spawning
 @Mod.EventBusSubscriber(modid = BaseMod.MODID)
 public class WorldMod {
 
@@ -43,6 +44,7 @@ public class WorldMod {
             BlockMod.CASTLE_WALL.defaultBlockState(),
             12));
 
+    // natural ore generation
     public static PlacedFeature CASTLE_WALL_TEST_PLACED_FEATURE = CASTLE_WALL_TEST_FEATURE.placed(
             List.of(
                     CountPlacement.of(150),
@@ -75,10 +77,11 @@ public class WorldMod {
         BiomeGenerationSettingsBuilder biomeGen = event.getGeneration();
         MobSpawnSettingsBuilder builder = event.getSpawns();
 
+        // natural ore generation
         FeatureUtils.register("castlewallfeature", CASTLE_WALL_TEST_FEATURE);
         PlacementUtils.register("castlewallfeature", CASTLE_WALL_TEST_PLACED_FEATURE);
 
-
+        // natural ore generation
         if(event.getCategory() == Biome.BiomeCategory.MOUNTAIN)
         {
             biomeGen.addFeature(GenerationStep.Decoration.UNDERGROUND_ORES, CASTLE_WALL_TEST_PLACED_FEATURE);
