@@ -94,7 +94,7 @@ public class BaseMod {
                 collect(Collectors.toList()));
     }
 
-        // You can use SubscribeEvent and let the Event Bus discover methods to call
+    // You can use SubscribeEvent and let the Event Bus discover methods to call
     @SubscribeEvent
     public void onServerStarting(ServerStartingEvent event) {
         // do something when the server starts
@@ -147,7 +147,7 @@ public class BaseMod {
         @SubscribeEvent
         public static void registerEntities(final RegistryEvent.Register<EntityType<?>> event) {
             BaseMod.LOGGER.info("Registering Entities");
-            // Add item registry calls here.
+            // Add entity registry calls here.
             // event.getRegistry.register(<entity type>)
             // also register the entity attributes with:
             // GlobalEntityTypeAttributes.put(<entity type>, <entity attribute method>.func_233813_a_());
@@ -155,7 +155,7 @@ public class BaseMod {
         }
 
         @SubscribeEvent
-        public static void registerEntities(final EntityRenderersEvent.RegisterLayerDefinitions event) {
+        public static void registerLayerDefinitions(final EntityRenderersEvent.RegisterLayerDefinitions event) {
             BaseMod.LOGGER.info("Registering Layer Definitions");
             // Add LayerDefinition registry calls here.
             // event.getRegistry.register(<entity type>)
@@ -176,11 +176,14 @@ public class BaseMod {
         public static void entityRenderers(final EntityRenderersEvent.RegisterRenderers event){
             EntityMod.entityRenderers(event);
         }
+
+        // register mob attributes
         @SubscribeEvent
         public static void attributeRegister(EntityAttributeCreationEvent event) {
             EntityMod.onAttributeCreate(event);
         }
 
+        // register enchantments
         @SubscribeEvent
         public static void registerEnchantments(final RegistryEvent.Register<Enchantment> event){
             EnchantmentMod.registerEnchantments(event);
