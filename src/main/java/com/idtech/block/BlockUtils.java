@@ -24,7 +24,7 @@ public class BlockUtils {
     }
 
     public static Block createBasicBlock(String name, Material material, float strength){
-        return new Block(Block.Properties.of(material).strength(strength)).setRegistryName(BaseMod.MODID, name);
+        return new Block(Block.Properties.of(material).strength(strength).requiresCorrectToolForDrops()).setRegistryName(BaseMod.MODID, name);
     }
 
 

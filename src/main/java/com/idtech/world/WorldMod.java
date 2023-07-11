@@ -84,7 +84,7 @@ public class WorldMod {
         PlacementUtils.register("castlewallfeature", CASTLE_WALL_TEST_PLACED_FEATURE);
 
         // natural ore generation
-        if(event.getCategory() == Biome.BiomeCategory.MOUNTAIN)
+        if(event.getCategory() != Biome.BiomeCategory.THEEND && event.getCategory() != Biome.BiomeCategory.NETHER)
         {
             biomeGen.addFeature(GenerationStep.Decoration.UNDERGROUND_ORES, CASTLE_WALL_TEST_PLACED_FEATURE);
         }
@@ -116,6 +116,16 @@ public class WorldMod {
         if(event.getCategory() == Biome.BiomeCategory.THEEND){
             event.getSpawns().addSpawn(MobCategory.MONSTER,
                     new MobSpawnSettings.SpawnerData(GhostEntity.TYPE, 2, 1, 1));
+        }
+
+        if(event.getCategory() == Biome.BiomeCategory.NETHER){
+            event.getSpawns().addSpawn(MobCategory.MONSTER,
+                    new MobSpawnSettings.SpawnerData(GhostEntity.TYPE, 1, 1, 1));
+        }
+
+        if(event.getCategory() == Biome.BiomeCategory.NETHER){
+            event.getSpawns().addSpawn(MobCategory.CREATURE,
+                    new MobSpawnSettings.SpawnerData(EntityType.WOLF, 5, 1, 18));
         }
     }
 }

@@ -11,6 +11,7 @@ public class ItemMod {
 
     //BASIC ITEMS
     public static final Item STRUCTURE_GEL = ItemUtils.buildBasicItem("structuregel", CreativeModeTab.TAB_MISC);
+    public static final Item COFFEE_MUG = ItemUtils.buildBasicItem("coffeemug", CreativeModeTab.TAB_MISC);
     public static final Item GEL_ORE = ItemUtils.buildBasicItem("gelore", CreativeModeTab.TAB_MISC);
     //FOODS
 
@@ -20,11 +21,13 @@ public class ItemMod {
 
         //BASIC ITEMS
         event.getRegistry().register(STRUCTURE_GEL);
+        event.getRegistry().register(COFFEE_MUG);
         event.getRegistry().register(GEL_ORE);
 
         // ITEMS
         event.getRegistry().register(TeleportRodItem.INSTANCE);
         event.getRegistry().register(LightningHammerItem.INSTANCE);
+        event.getRegistry().register(CustomTridentItem.INSTANCE);
 
         // TOOLS
         event.getRegistry().register(GelPickaxeItem.INSTANCE);
@@ -32,6 +35,10 @@ public class ItemMod {
         // FOOD
 
         // ARMOR
+        event.getRegistry().register(CustomArmorItem.HELM);
+        event.getRegistry().register(CustomArmorItem.CHEST);
+        event.getRegistry().register(CustomArmorItem.LEGS);
+        event.getRegistry().register(CustomArmorItem.BOOTS);
 
         //PROJECTILES
 

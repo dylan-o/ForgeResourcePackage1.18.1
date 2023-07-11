@@ -11,5 +11,7 @@
   "item.examplemod.ghost_egg": "Ghost Spawn Egg",
   "entity.examplemod.ghost": "Ghost",
   "item.examplemod.lightninghammer": "Lightning Hammer",
-  "item.examplemod.teleportrod": "Teleport Rod"
+  "item.examplemod.teleportrod": "Teleport Rod",
+  "item.examplemod.coffeemug": "Coffee Mug",
+  "item.examplemod.gel_ore": "Gel Ore"
 }
