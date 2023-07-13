@@ -2,6 +2,8 @@ package com.idtech.item;
 
 import com.idtech.BaseMod;
 import net.minecraft.sounds.SoundEvents;
+import net.minecraft.world.effect.MobEffectInstance;
+import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.entity.player.Player;
@@ -25,20 +27,44 @@ public class CustomArmorItem extends ArmorItem {
     public static Item LEGS = new CustomArmorItem(customMaterial, EquipmentSlot.LEGS, properties).setRegistryName(BaseMod.MODID,"custom_legs");
     public static Item BOOTS = new CustomArmorItem(customMaterial, EquipmentSlot.FEET, properties).setRegistryName(BaseMod.MODID,"custom_boots");
 
-
-
     //constructor
     public CustomArmorItem(ArmorMaterial material, EquipmentSlot type, Item.Properties properties) {
         super(material, type, properties);
-
     }
 
+    // custom armor item gives player an effect when worn
     @Override
     public void onArmorTick(ItemStack stack, Level world, Player player) {
         if(!world.isClientSide()) {
-            if(hasFullSuitOfArmorOn(player)) {
-                evaluateArmorEffects(player);
+
+            if(player.getInventory().getArmor(3).getItem() != Items.AIR){
+                ArmorItem helmet = (ArmorItem) player.getInventory().getArmor(3).getItem();
+                if(helmet.getMaterial() == customMaterial){
+                    player.addEffect(new MobEffectInstance(MobEffects.DAMAGE_BOOST, 21, 1));
+                }
             }
+
+            if(player.getInventory().getArmor(2).getItem() != Items.AIR){
+                ArmorItem chestplate = (ArmorItem) player.getInventory().getArmor(2).getItem();
+                if(chestplate.getMaterial() == customMaterial){
+                    player.addEffect(new MobEffectInstance(MobEffects.DAMAGE_RESISTANCE, 21, 1));
+                }
+            }
+
+            if(player.getInventory().getArmor(1).getItem() != Items.AIR){
+                ArmorItem leggings = (ArmorItem) player.getInventory().getArmor(1).getItem();
+                if(leggings.getMaterial() == customMaterial){
+                    player.addEffect(new MobEffectInstance(MobEffects.MOVEMENT_SPEED, 21, 1));
+                }
+            }
+
+            if(player.getInventory().getArmor(0).getItem() != Items.AIR){
+                ArmorItem boots = (ArmorItem) player.getInventory().getArmor(0).getItem();
+                if(boots.getMaterial() == customMaterial){
+                    player.addEffect(new MobEffectInstance(MobEffects.JUMP, 21, 1));
+                }
+            }
+            super.onArmorTick(stack, world, player);
         }
     }
 

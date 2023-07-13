@@ -19,5 +19,6 @@
   "item.examplemod.custom_boots": "Custom Boots",
   "block.examplemod.gel_ore": "Gel Ore",
   "block.examplemod.ember_block": "Block of Embers",
-  "item.examplemod.customtrident": "Custom Trident"
+  "item.examplemod.customtrident": "Custom Trident",
+  "item.examplemod.overworldhelmet": "Overworld Helmet"
 }
