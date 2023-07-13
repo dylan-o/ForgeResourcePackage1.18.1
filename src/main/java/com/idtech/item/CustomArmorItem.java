@@ -4,7 +4,9 @@ import com.idtech.BaseMod;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EquipmentSlot;
+import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.*;
+import net.minecraft.world.level.Level;
 
 import javax.annotation.Nullable;
 
@@ -18,10 +20,10 @@ public class CustomArmorItem extends ArmorItem {
     private static Item.Properties properties = new Item.Properties().tab(CreativeModeTab.TAB_COMBAT);
 
     //static instances for registering
-    public static Item HELM = new CustomArmorItem(customMaterial, EquipmentSlot.HEAD, properties).setRegistryName(BaseMod.MODID,"customhelm");
-    public static Item CHEST = new CustomArmorItem(customMaterial, EquipmentSlot.CHEST, properties).setRegistryName(BaseMod.MODID,"customchest");
-    public static Item LEGS = new CustomArmorItem(customMaterial, EquipmentSlot.LEGS, properties).setRegistryName(BaseMod.MODID,"customlegs");
-    public static Item BOOTS = new CustomArmorItem(customMaterial, EquipmentSlot.FEET, properties).setRegistryName(BaseMod.MODID,"customboots");
+    public static Item HELM = new CustomArmorItem(customMaterial, EquipmentSlot.HEAD, properties).setRegistryName(BaseMod.MODID,"custom_helm");
+    public static Item CHEST = new CustomArmorItem(customMaterial, EquipmentSlot.CHEST, properties).setRegistryName(BaseMod.MODID,"custom_chest");
+    public static Item LEGS = new CustomArmorItem(customMaterial, EquipmentSlot.LEGS, properties).setRegistryName(BaseMod.MODID,"custom_legs");
+    public static Item BOOTS = new CustomArmorItem(customMaterial, EquipmentSlot.FEET, properties).setRegistryName(BaseMod.MODID,"custom_boots");
 
 
 
@@ -29,6 +31,15 @@ public class CustomArmorItem extends ArmorItem {
     public CustomArmorItem(ArmorMaterial material, EquipmentSlot type, Item.Properties properties) {
         super(material, type, properties);
 
+    }
+
+    @Override
+    public void onArmorTick(ItemStack stack, Level world, Player player) {
+        if(!world.isClientSide()) {
+            if(hasFullSuitOfArmorOn(player)) {
+                evaluateArmorEffects(player);
+            }
+        }
     }
 
     //texture management!

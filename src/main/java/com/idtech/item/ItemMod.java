@@ -12,7 +12,7 @@ public class ItemMod {
     //BASIC ITEMS
     public static final Item STRUCTURE_GEL = ItemUtils.buildBasicItem("structuregel", CreativeModeTab.TAB_MISC);
     public static final Item COFFEE_MUG = ItemUtils.buildBasicItem("coffeemug", CreativeModeTab.TAB_MISC);
-    public static final Item GEL_ORE = ItemUtils.buildBasicItem("gelore", CreativeModeTab.TAB_MISC);
+    public static final Item GEL_ORE = ItemUtils.buildBasicItem("gel", CreativeModeTab.TAB_MISC);
     //FOODS
 
 

@@ -5,11 +5,15 @@ import com.idtech.enchantment.EnchantmentMod;
 import com.idtech.entity.*;
 import com.idtech.item.*;
 
+import net.minecraft.client.renderer.ItemBlockRenderTypes;
+import net.minecraft.client.renderer.RenderType;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.item.Item;
+import net.minecraft.world.item.Items;
 import net.minecraft.world.item.enchantment.Enchantment;
 import net.minecraft.world.level.biome.Biome;
 import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.ComposterBlock;
 import net.minecraftforge.client.event.EntityRenderersEvent;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.RegistryEvent;
@@ -18,6 +22,7 @@ import net.minecraftforge.event.server.ServerStartingEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.InterModComms;
 import net.minecraftforge.fml.common.Mod;
+import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.fml.event.lifecycle.InterModEnqueueEvent;
 import net.minecraftforge.fml.event.lifecycle.InterModProcessEvent;
@@ -47,6 +52,10 @@ public class BaseMod {
         // Register the processIMC method for modloading
         FMLJavaModLoadingContext.get().getModEventBus().addListener(this::processIMC);
 
+        // Use this for rendering transparent blocks, making things compostable
+        // Can likely be used for other things as well
+        FMLJavaModLoadingContext.get().getModEventBus().addListener(this::clientSetup);
+
         // Register ourselves for server and other game events we are interested in
         MinecraftForge.EVENT_BUS.register(this);
     }
@@ -67,6 +76,18 @@ public class BaseMod {
 //        MinecraftForge.EVENT_BUS.register(CustomEvent.class);
 //        MinecraftForge.EVENT_BUS.addListener(EventMod::isHoldingEvent);
         //Adds the RegisterCommandEvent as an event and sets a listener for it during FMLCommonSetup
+    }
+
+    private void clientSetup (final FMLClientSetupEvent event) {
+
+        //Rendering transparent blocks
+        //ItemBlockRenderTypes.setRenderLayer(CustomFoodPlantBlock.INSTANCE, RenderType.cutout());
+
+        //Composting items
+        //first argument is item instance
+        //second argument is a float: percent chance a bonemeal is given
+        ComposterBlock.COMPOSTABLES.put(Items.GOLDEN_CARROT, 0.3f);
+
     }
 
     private void enqueueIMC(final InterModEnqueueEvent event) {

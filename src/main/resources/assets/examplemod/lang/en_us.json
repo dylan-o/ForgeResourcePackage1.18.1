@@ -1,7 +1,6 @@
 {
   "item.examplemod.structuregel": "Structure Gel",
   "block.examplemod.castlewall": "Castle Wall",
-  "item.examplemod.gelore": "Gel Ore",
   "item.examplemod.gelpickaxe": "Gel Pickaxe",
   "enchantment.examplemod.electricity": "Electricity",
   "enchantment.examplemod.wither_touch": "Wither Touch",
@@ -13,5 +12,12 @@
   "item.examplemod.lightninghammer": "Lightning Hammer",
   "item.examplemod.teleportrod": "Teleport Rod",
   "item.examplemod.coffeemug": "Coffee Mug",
-  "item.examplemod.gel_ore": "Gel Ore"
+  "item.examplemod.gel": "Gel",
+  "item.examplemod.custom_helm": "Custom Helmet",
+  "item.examplemod.custom_chest": "Custom Chestplate",
+  "item.examplemod.custom_legs": "Custom Leggings",
+  "item.examplemod.custom_boots": "Custom Boots",
+  "block.examplemod.gel_ore": "Gel Ore",
+  "block.examplemod.ember_block": "Block of Embers",
+  "item.examplemod.customtrident": "Custom Trident"
 }
