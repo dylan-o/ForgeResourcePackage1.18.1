@@ -85,7 +85,7 @@ public class BaseMod {
 
         //Composting items
         //first argument is item instance
-        //second argument is a float: percent chance a bonemeal is given
+        //second argument is a float: not really sure
         ComposterBlock.COMPOSTABLES.put(Items.GOLDEN_CARROT, 0.3f);
 
     }
