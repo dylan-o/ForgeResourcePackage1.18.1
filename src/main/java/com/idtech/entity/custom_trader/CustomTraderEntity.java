@@ -1,7 +1,7 @@
 package com.idtech.entity.custom_trader;
 import com.idtech.BaseMod;
 import com.idtech.entity.EntityUtils;
-import com.idtech.item.GelPickaxeItem;
+import com.idtech.item.tools.GelPickaxeItem;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.MobCategory;
 import net.minecraft.world.entity.ai.attributes.AttributeSupplier;
@@ -19,8 +19,8 @@ import net.minecraft.world.level.Level;
 public class CustomTraderEntity extends WanderingTrader {
     public static EntityType<CustomTraderEntity> TYPE = (EntityType<CustomTraderEntity>)
             EntityType.Builder.of(CustomTraderEntity::new, MobCategory.MONSTER)
-                    .build("beantrader")
-                    .setRegistryName(BaseMod.MODID, "beantrader");
+                    .build("custom_trader")
+                    .setRegistryName(BaseMod.MODID, "custom_trader");
     public static Item EGG = EntityUtils.buildEntitySpawnEgg(TYPE, 0xb00101, 0xacbf1f);
 
     public CustomTraderEntity(EntityType<? extends WanderingTrader> type, Level level) {

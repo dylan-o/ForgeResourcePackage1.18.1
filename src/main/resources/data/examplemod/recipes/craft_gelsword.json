@@ -1,19 +1,19 @@
 {
   "type": "minecraft:crafting_shaped",
   "pattern": [
-    "xxx",
-    " y ",
-    " y "
+    "x",
+    "x",
+    "y"
   ],
   "key": {
     "x": {
-      "item": "examplemod:gelore"
+      "item": "examplemod:gel"
     },
     "y": {
       "item": "minecraft:stick"
     }
   },
   "result": {
-    "item": "examplemod:gelpickaxe"
+    "item": "examplemod:gelsword"
   }
 }

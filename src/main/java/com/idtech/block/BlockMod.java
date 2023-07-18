@@ -14,11 +14,14 @@ public class BlockMod {
 
     //Basic Block
     public static final Block CASTLE_WALL = BlockUtils.createBasicBlock("castlewall", Material.STONE, 0.3f);
-    public static final Item CASTLE_WALL_ITEM = BlockUtils.createBlockItem(CASTLE_WALL, CreativeModeTab.TAB_MISC);
+    public static final Item CASTLE_WALL_ITEM = BlockUtils.createBlockItem(CASTLE_WALL, CreativeModeTab.TAB_BUILDING_BLOCKS);
     public static final Block GEL_ORE = BlockUtils.createBasicBlock("gel_ore", Material.STONE, 0.5f);
     public static final Item GEL_ORE_ITEM = BlockUtils.createBlockItem(GEL_ORE, CreativeModeTab.TAB_BUILDING_BLOCKS);
     public static final Block EMBER_BLOCK = BlockUtils.createBasicBlock("ember_block", Material.STONE, 0.8f);
     public static final Item EMBER_BLOCK_ITEM = BlockUtils.createBlockItem(EMBER_BLOCK, CreativeModeTab.TAB_BUILDING_BLOCKS);
+    public static final Block ENDSTONE_ORE = BlockUtils.createBasicBlock("endstone_ore", Material.STONE, 1.0f);
+    public static final Item ENDSTONE_ORE_ITEM = BlockUtils.createBlockItem(ENDSTONE_ORE, CreativeModeTab.TAB_BUILDING_BLOCKS);
+
 
     @SubscribeEvent
     public static void registerBlockItems(RegistryEvent.Register<Item> event) {
@@ -26,6 +29,7 @@ public class BlockMod {
         event.getRegistry().register(CASTLE_WALL_ITEM);
         event.getRegistry().register(GEL_ORE_ITEM);
         event.getRegistry().register(EMBER_BLOCK_ITEM);
+        event.getRegistry().register(ENDSTONE_ORE_ITEM);
         //event.getRegistry().register(TNTCannonBlock.ITEM);
 
     }
@@ -36,6 +40,7 @@ public class BlockMod {
         event.getRegistry().register(CASTLE_WALL);
         event.getRegistry().register(GEL_ORE);
         event.getRegistry().register(EMBER_BLOCK);
+        event.getRegistry().register(ENDSTONE_ORE);
         //event.getRegistry().register(TNTCannonBlock.INSTANCE);
 
     }

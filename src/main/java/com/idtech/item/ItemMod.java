@@ -1,5 +1,6 @@
 package com.idtech.item;
 
+import com.idtech.item.tools.*;
 import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.Item;
 import net.minecraftforge.event.RegistryEvent;
@@ -12,8 +13,11 @@ public class ItemMod {
     //BASIC ITEMS
     public static final Item STRUCTURE_GEL = ItemUtils.buildBasicItem("structuregel", CreativeModeTab.TAB_MISC);
     public static final Item COFFEE_MUG = ItemUtils.buildBasicItem("coffeemug", CreativeModeTab.TAB_MISC);
-    public static final Item GEL_ORE = ItemUtils.buildBasicItem("gel", CreativeModeTab.TAB_MISC);
+    public static final Item GEL = ItemUtils.buildBasicItem("gel", CreativeModeTab.TAB_MISC);
+    public static final Item END_ROCK = ItemUtils.buildBasicItem("end_rock", CreativeModeTab.TAB_MISC);
+
     //FOODS
+
 
 
     @SubscribeEvent
@@ -22,15 +26,22 @@ public class ItemMod {
         //BASIC ITEMS
         event.getRegistry().register(STRUCTURE_GEL);
         event.getRegistry().register(COFFEE_MUG);
-        event.getRegistry().register(GEL_ORE);
+        event.getRegistry().register(GEL);
+        event.getRegistry().register(END_ROCK);
+
 
         // ITEMS
-        event.getRegistry().register(TeleportRodItem.INSTANCE);
         event.getRegistry().register(LightningHammerItem.INSTANCE);
+        event.getRegistry().register(TeleportRodItem.INSTANCE);
         event.getRegistry().register(CustomTridentItem.INSTANCE);
 
         // TOOLS
         event.getRegistry().register(GelPickaxeItem.INSTANCE);
+        event.getRegistry().register(GelAxeItem.INSTANCE);
+        event.getRegistry().register(GelSwordItem.INSTANCE);
+        event.getRegistry().register(GelShovelItem.INSTANCE);
+        event.getRegistry().register(GelHoeItem.INSTANCE);
+        event.getRegistry().register(EnderPickaxeItem.INSTANCE);
 
         // FOOD
 
