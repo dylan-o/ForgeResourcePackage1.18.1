@@ -1,5 +1,6 @@
 package com.idtech.item;
 
+import com.idtech.ModTab;
 import com.idtech.item.tools.*;
 import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.Item;
@@ -11,10 +12,10 @@ import net.minecraftforge.fml.common.Mod;
 public class ItemMod {
 
     //BASIC ITEMS
-    public static final Item STRUCTURE_GEL = ItemUtils.buildBasicItem("structuregel", CreativeModeTab.TAB_MISC);
-    public static final Item COFFEE_MUG = ItemUtils.buildBasicItem("coffeemug", CreativeModeTab.TAB_MISC);
-    public static final Item GEL = ItemUtils.buildBasicItem("gel", CreativeModeTab.TAB_MISC);
-    public static final Item END_ROCK = ItemUtils.buildBasicItem("end_rock", CreativeModeTab.TAB_MISC);
+    public static final Item STRUCTURE_GEL = ItemUtils.buildBasicItem("structuregel", ModTab.INSTANCE);
+    public static final Item COFFEE_MUG = ItemUtils.buildBasicItem("coffeemug", ModTab.INSTANCE);
+    public static final Item GEL = ItemUtils.buildBasicItem("gel", ModTab.INSTANCE);
+    public static final Item END_ROCK = ItemUtils.buildBasicItem("end_rock", ModTab.INSTANCE);
 
     //FOODS
 

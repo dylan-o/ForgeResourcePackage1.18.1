@@ -37,6 +37,17 @@ public class ElectricityEnchantment extends Enchantment {
         return 1;
     }
 
+    @Override
+    public boolean isTradeable(){ return true; }
+
+    @Override
+    public boolean isDiscoverable(){ return true; }
+
+    @Override
+    public boolean isAllowedOnBooks(){ return true; }
+
+    @Override
+    public boolean isTreasureOnly(){ return false; }
 
     /**
      * Called whenever a mob is damaged with an item that has this enchantment on it.

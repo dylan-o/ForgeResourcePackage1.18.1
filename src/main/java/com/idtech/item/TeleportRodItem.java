@@ -1,5 +1,6 @@
 package com.idtech.item;
 
+import com.idtech.ModTab;
 import com.idtech.Utils;
 import net.minecraft.core.BlockPos;
 import net.minecraft.world.InteractionHand;
@@ -13,7 +14,7 @@ import net.minecraft.world.level.Level;
 public class TeleportRodItem extends Item {
 
     //static instance for registration
-    private static Properties properties = new Properties().tab(CreativeModeTab.TAB_MISC);
+    private static Properties properties = new Properties().tab(ModTab.INSTANCE);
     public static Item INSTANCE = new TeleportRodItem(properties).setRegistryName("teleportrod");
 
     //constructor

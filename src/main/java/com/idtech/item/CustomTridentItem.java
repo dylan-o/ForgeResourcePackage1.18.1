@@ -1,5 +1,6 @@
 package com.idtech.item;
 
+import com.idtech.ModTab;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResultHolder;
 import net.minecraft.world.entity.player.Player;
@@ -13,7 +14,7 @@ import net.minecraft.world.level.Level;
 //not working yet
 public class CustomTridentItem extends TridentItem {
 
-    private static Properties properties = new Properties().tab(CreativeModeTab.TAB_COMBAT);
+    private static Properties properties = new Properties().tab(ModTab.INSTANCE);
     public static Item INSTANCE = new CustomTridentItem(properties).setRegistryName("customtrident");
 
     public CustomTridentItem(Item.Properties properties) {

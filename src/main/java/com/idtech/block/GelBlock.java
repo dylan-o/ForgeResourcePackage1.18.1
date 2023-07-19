@@ -1,6 +1,7 @@
 package com.idtech.block;
 
 import com.idtech.BaseMod;
+import com.idtech.ModTab;
 import net.minecraft.core.BlockPos;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.item.CreativeModeTab;
@@ -16,7 +17,7 @@ public class GelBlock extends Block {
         super(properties);
     }
     public static Block INSTANCE = new GelBlock(properties).setRegistryName(BaseMod.MODID, "gel_block");
-    public static Item ITEM = BlockUtils.createBlockItem(INSTANCE, CreativeModeTab.TAB_MISC);
+    public static Item ITEM = BlockUtils.createBlockItem(INSTANCE, ModTab.INSTANCE);
     @Override
     public void stepOn(Level levelIn, BlockPos posIn, BlockState blockStateIn, Entity entityIn) {
         super.stepOn(levelIn, posIn, blockStateIn, entityIn);

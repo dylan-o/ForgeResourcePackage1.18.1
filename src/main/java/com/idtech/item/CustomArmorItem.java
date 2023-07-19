@@ -1,6 +1,7 @@
 package com.idtech.item;
 
 import com.idtech.BaseMod;
+import com.idtech.ModTab;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffects;
@@ -19,7 +20,7 @@ public class CustomArmorItem extends ArmorItem {
             SoundEvents.ARMOR_EQUIP_CHAIN, 4.0f, 0.3f,"examplemod:gelore");
 
     //properties
-    private static Item.Properties properties = new Item.Properties().tab(CreativeModeTab.TAB_COMBAT);
+    private static Item.Properties properties = new Item.Properties().tab(ModTab.INSTANCE);
 
     //static instances for registering
     public static Item HELM = new CustomArmorItem(customMaterial, EquipmentSlot.HEAD, properties).setRegistryName(BaseMod.MODID,"custom_helm");

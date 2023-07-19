@@ -28,7 +28,7 @@ public class GhostEntity extends Ghast {
                     .build("ghost")
                     .setRegistryName(BaseMod.MODID, "ghost");
     public static Item EGG = EntityUtils.buildEntitySpawnEgg(TYPE, 0xff3399, 0x1a000d);
-    protected GhostEntity(EntityType<? extends Ghast> type, Level level) {
+    public GhostEntity(EntityType<? extends Ghast> type, Level level) {
         super(type, level);
     }
     public static AttributeSupplier.Builder createAttributes() {

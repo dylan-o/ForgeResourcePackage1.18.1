@@ -1,6 +1,7 @@
 package com.idtech.block;
 
 
+import com.idtech.ModTab;
 import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.Block;
@@ -14,13 +15,13 @@ public class BlockMod {
 
     //Basic Block
     public static final Block CASTLE_WALL = BlockUtils.createBasicBlock("castlewall", Material.STONE, 0.3f);
-    public static final Item CASTLE_WALL_ITEM = BlockUtils.createBlockItem(CASTLE_WALL, CreativeModeTab.TAB_BUILDING_BLOCKS);
+    public static final Item CASTLE_WALL_ITEM = BlockUtils.createBlockItem(CASTLE_WALL, ModTab.INSTANCE);
     public static final Block GEL_ORE = BlockUtils.createBasicBlock("gel_ore", Material.STONE, 0.5f);
-    public static final Item GEL_ORE_ITEM = BlockUtils.createBlockItem(GEL_ORE, CreativeModeTab.TAB_BUILDING_BLOCKS);
+    public static final Item GEL_ORE_ITEM = BlockUtils.createBlockItem(GEL_ORE, ModTab.INSTANCE);
     public static final Block EMBER_BLOCK = BlockUtils.createBasicBlock("ember_block", Material.STONE, 0.8f);
-    public static final Item EMBER_BLOCK_ITEM = BlockUtils.createBlockItem(EMBER_BLOCK, CreativeModeTab.TAB_BUILDING_BLOCKS);
+    public static final Item EMBER_BLOCK_ITEM = BlockUtils.createBlockItem(EMBER_BLOCK, ModTab.INSTANCE);
     public static final Block ENDSTONE_ORE = BlockUtils.createBasicBlock("endstone_ore", Material.STONE, 1.0f);
-    public static final Item ENDSTONE_ORE_ITEM = BlockUtils.createBlockItem(ENDSTONE_ORE, CreativeModeTab.TAB_BUILDING_BLOCKS);
+    public static final Item ENDSTONE_ORE_ITEM = BlockUtils.createBlockItem(ENDSTONE_ORE, ModTab.INSTANCE);
 
 
     @SubscribeEvent

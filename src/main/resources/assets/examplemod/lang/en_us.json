@@ -9,6 +9,7 @@
   "enchantment.examplemod.electricity": "Electricity",
   "enchantment.examplemod.wither_touch": "Wither Touch",
   "enchantment.examplemod.blind_fighter": "Curse of Tunnel Vision",
+  "enchantment.examplemod.enemy_spawn_curse": "Curse of Battle",
 
   "entity.examplemod.ghost": "Ghost",
   "entity.examplemod.custom_trader": "Custom Trader",
@@ -34,5 +35,7 @@
   "item.examplemod.customtrident": "Custom Trident",
   "item.examplemod.overworldhelmet": "Overworld Helmet",
   "item.examplemod.enderpickaxe": "Ender Pickaxe",
-  "item.examplemod.end_rock": "End Rock"
+  "item.examplemod.end_rock": "End Rock",
+
+  "itemGroup.examplemodtab": "Mod Items"
 }

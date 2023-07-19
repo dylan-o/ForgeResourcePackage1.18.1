@@ -1,6 +1,7 @@
 package com.idtech.item;
 
 import com.idtech.BaseMod;
+import com.idtech.ModTab;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffects;
@@ -15,7 +16,7 @@ import javax.annotation.Nullable;
 
 public class OverworldHelmet extends ArmorItem {
 
-    private static Properties properties = new Properties().tab(CreativeModeTab.TAB_COMBAT);
+    private static Properties properties = new Properties().tab(ModTab.INSTANCE);
     public static ArmorMaterial materials = ItemUtils.buildArmorMaterial("guardianspikes", 1,
            new int[]{10,10,10,10}, 22, SoundEvents.ARMOR_EQUIP_NETHERITE, 1,
            2, "minecraft:netherite_ingot");
