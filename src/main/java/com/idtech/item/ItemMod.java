@@ -43,6 +43,7 @@ public class ItemMod {
         event.getRegistry().register(GelShovelItem.INSTANCE);
         event.getRegistry().register(GelHoeItem.INSTANCE);
         event.getRegistry().register(EnderPickaxeItem.INSTANCE);
+        event.getRegistry().register(EnderAxeItem.INSTANCE);
 
         // FOOD
 
