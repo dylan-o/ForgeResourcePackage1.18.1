@@ -3,6 +3,8 @@
   "block.examplemod.endstone_ore": "Endstone Ore",
   "block.examplemod.ember_block": "Block of Embers",
   "block.examplemod.castlewall": "Castle Wall",
+  "block.examplemod.gel_block": "Gel Block",
+  "block.examplemod.creeper_surprise_block": "Creeper Surprise Block",
 
   "enchantment.examplemod.electricity": "Electricity",
   "enchantment.examplemod.wither_touch": "Wither Touch",

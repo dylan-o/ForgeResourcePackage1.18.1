@@ -30,6 +30,8 @@ public class BlockMod {
         event.getRegistry().register(GEL_ORE_ITEM);
         event.getRegistry().register(EMBER_BLOCK_ITEM);
         event.getRegistry().register(ENDSTONE_ORE_ITEM);
+        event.getRegistry().register(GelBlock.ITEM);
+        event.getRegistry().register(CreeperSurpriseBlock.ITEM);
         //event.getRegistry().register(TNTCannonBlock.ITEM);
 
     }
@@ -41,6 +43,8 @@ public class BlockMod {
         event.getRegistry().register(GEL_ORE);
         event.getRegistry().register(EMBER_BLOCK);
         event.getRegistry().register(ENDSTONE_ORE);
+        event.getRegistry().register(GelBlock.INSTANCE);
+        event.getRegistry().register(CreeperSurpriseBlock.INSTANCE);
         //event.getRegistry().register(TNTCannonBlock.INSTANCE);
 
     }
