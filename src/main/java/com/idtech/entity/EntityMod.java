@@ -7,6 +7,7 @@ import com.idtech.entity.ghost.GhostModel;
 import com.idtech.entity.ghost.GhostRenderFactory;
 import com.idtech.entity.jungle_bat.JungleBatEntity;
 import com.idtech.entity.jungle_bat.JungleBatRenderFactory;
+import net.minecraft.client.renderer.entity.ThrownItemRenderer;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.item.Item;
 import net.minecraftforge.client.event.EntityRenderersEvent;
@@ -21,6 +22,7 @@ public class EntityMod {
         event.getRegistry().register(GhostEntity.TYPE);
         event.getRegistry().register(JungleBatEntity.TYPE);
         event.getRegistry().register(CustomTraderEntity.TYPE);
+        event.getRegistry().register(ExplosionProjectile.TYPE);
     }
     @SubscribeEvent
     public static void registerEntityEggs(final RegistryEvent.Register<Item> event) {
@@ -33,6 +35,7 @@ public class EntityMod {
         event.registerEntityRenderer(GhostEntity.TYPE, GhostRenderFactory.INSTANCE);
         event.registerEntityRenderer(JungleBatEntity.TYPE, JungleBatRenderFactory.INSTANCE);
         event.registerEntityRenderer(CustomTraderEntity.TYPE, CustomTraderRenderFactory.INSTANCE);
+        event.registerEntityRenderer(ExplosionProjectile.TYPE, (m) -> { return new ThrownItemRenderer<>(m, 1.0f, true);});
     }
     @SubscribeEvent
     public static void onAttributeCreate(EntityAttributeCreationEvent event) {

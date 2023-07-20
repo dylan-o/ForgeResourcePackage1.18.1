@@ -35,6 +35,8 @@ public class ItemMod {
         event.getRegistry().register(LightningHammerItem.INSTANCE);
         event.getRegistry().register(TeleportRodItem.INSTANCE);
         event.getRegistry().register(CustomTridentItem.INSTANCE);
+        event.getRegistry().register(ZooSwordItem.INSTANCE);
+        event.getRegistry().register(FireballWandItem.INSTANCE);
 
         // TOOLS
         event.getRegistry().register(GelPickaxeItem.INSTANCE);
