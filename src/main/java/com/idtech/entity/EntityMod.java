@@ -7,6 +7,8 @@ import com.idtech.entity.ghost.GhostModel;
 import com.idtech.entity.ghost.GhostRenderFactory;
 import com.idtech.entity.jungle_bat.JungleBatEntity;
 import com.idtech.entity.jungle_bat.JungleBatRenderFactory;
+import com.idtech.entity.projectile.BombArrow;
+import com.idtech.entity.projectile.ExplosionProjectile;
 import net.minecraft.client.renderer.entity.ThrownItemRenderer;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.item.Item;

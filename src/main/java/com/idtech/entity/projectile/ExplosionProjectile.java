@@ -1,4 +1,4 @@
-package com.idtech.entity;
+package com.idtech.entity.projectile;
 
 import com.idtech.BaseMod;
 import net.minecraft.world.entity.EntityType;

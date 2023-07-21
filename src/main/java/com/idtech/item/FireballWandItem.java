@@ -1,7 +1,7 @@
 package com.idtech.item;
 
 import com.idtech.ModTab;
-import com.idtech.entity.ExplosionProjectile;
+import com.idtech.entity.projectile.ExplosionProjectile;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.world.InteractionHand;

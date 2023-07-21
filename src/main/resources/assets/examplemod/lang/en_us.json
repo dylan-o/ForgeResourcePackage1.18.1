@@ -39,6 +39,8 @@
   "item.examplemod.end_rock": "End Rock",
   "item.examplemod.zoosword": "Zoo Sword",
   "item.examplemod.fireballwand": "Fireball Wand",
+  "item.examplemod.bombarrow": "Bomb Arrow",
+  "item.examplemod.lightningarrow": "Lightning Arrow",
 
   "itemGroup.examplemodtab": "Mod Items"
 }
