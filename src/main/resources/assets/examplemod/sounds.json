@@ -1,0 +1,7 @@
+{
+  "mysound":
+  { "category": "master",
+    "sounds": ["examplemod:mysound"],
+    "subtitle": "examplemod.subtitle.mysound",
+    "stream": true }
+}

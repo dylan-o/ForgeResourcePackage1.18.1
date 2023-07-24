@@ -30,15 +30,12 @@ public class ItemMod {
         event.getRegistry().register(GEL);
         event.getRegistry().register(END_ROCK);
 
-
         // ITEMS
         event.getRegistry().register(LightningHammerItem.INSTANCE);
         event.getRegistry().register(TeleportRodItem.INSTANCE);
         event.getRegistry().register(CustomTridentItem.INSTANCE);
         event.getRegistry().register(ZooSwordItem.INSTANCE);
-        event.getRegistry().register(FireballWandItem.INSTANCE);
-        event.getRegistry().register(BombArrowItem.INSTANCE);
-        event.getRegistry().register(LightningArrowItem.INSTANCE);
+
 
         // TOOLS
         event.getRegistry().register(GelPickaxeItem.INSTANCE);
@@ -57,7 +54,10 @@ public class ItemMod {
         event.getRegistry().register(CustomArmorItem.LEGS);
         event.getRegistry().register(CustomArmorItem.BOOTS);
         event.getRegistry().register(OverworldHelmet.INSTANCE);
-        //PROJECTILES
 
+        //PROJECTILES
+        event.getRegistry().register(FireballWandItem.INSTANCE);
+        event.getRegistry().register(BombArrowItem.INSTANCE);
+        event.getRegistry().register(LightningArrowItem.INSTANCE);
     }
 }

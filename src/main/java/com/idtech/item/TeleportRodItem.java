@@ -29,7 +29,7 @@ public class TeleportRodItem extends Item {
 
         ItemStack itemstack = playerIn.getItemInHand(handIn);
 
-        BlockPos blockPos = Utils.getBlockAtCursor(playerIn, 1000.0d, true);
+        BlockPos blockPos = Utils.getBlockAtCursor(playerIn, 100.0d, true);
 
         if (blockPos != null){
             // add 1 to block y value so the player teleports on top of the block instead of in the block

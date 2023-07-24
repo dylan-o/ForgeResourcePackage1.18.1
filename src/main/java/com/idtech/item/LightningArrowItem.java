@@ -1,5 +1,6 @@
 package com.idtech.item;
 
+import com.idtech.ModTab;
 import com.idtech.entity.projectile.BombArrow;
 import com.idtech.entity.projectile.LightningArrow;
 import net.minecraft.world.entity.LivingEntity;
@@ -12,7 +13,7 @@ import net.minecraft.world.level.Level;
 
 public class LightningArrowItem extends ArrowItem
 {
-    private static Properties properties = new Properties().tab(CreativeModeTab.TAB_MISC);
+    private static Properties properties = new Properties().tab(ModTab.INSTANCE);
     public static Item INSTANCE = new LightningArrowItem(properties).setRegistryName("lightningarrow");
 
     public LightningArrowItem(Properties properties)

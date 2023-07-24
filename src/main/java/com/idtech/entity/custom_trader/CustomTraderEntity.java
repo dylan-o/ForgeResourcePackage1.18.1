@@ -1,7 +1,11 @@
 package com.idtech.entity.custom_trader;
 import com.idtech.BaseMod;
+import com.idtech.SoundHandler;
 import com.idtech.entity.EntityUtils;
 import com.idtech.item.tools.GelPickaxeItem;
+import net.minecraft.sounds.SoundEvent;
+import net.minecraft.sounds.SoundEvents;
+import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.MobCategory;
 import net.minecraft.world.entity.ai.attributes.AttributeSupplier;
@@ -57,7 +61,20 @@ public class CustomTraderEntity extends WanderingTrader {
             if (merchantoffer != null) {
                 merchantoffers.add(merchantoffer);
             }
-
         }
+
+
+    }
+    @Override
+    protected SoundEvent getAmbientSound() {
+        return SoundEvents.SHEEP_AMBIENT;
+    }
+    @Override
+    protected SoundEvent getHurtSound(DamageSource p_35870_) {
+        return SoundEvents.ENDERMAN_SCREAM;
+    }
+    @Override
+    protected SoundEvent getDeathSound() {
+        return SoundHandler.mySound;
     }
 }

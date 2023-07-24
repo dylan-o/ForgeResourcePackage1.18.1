@@ -1,5 +1,6 @@
 package com.idtech.item;
 
+import com.idtech.ModTab;
 import com.idtech.entity.projectile.BombArrow;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.projectile.AbstractArrow;
@@ -11,7 +12,7 @@ import net.minecraft.world.level.Level;
 
 public class BombArrowItem extends ArrowItem
 {
-    private static Properties properties = new Properties().tab(CreativeModeTab.TAB_MISC);
+    private static Properties properties = new Properties().tab(ModTab.INSTANCE);
     public static Item INSTANCE = new BombArrowItem(properties).setRegistryName("bombarrow");
 
     public BombArrowItem(Properties properties)
