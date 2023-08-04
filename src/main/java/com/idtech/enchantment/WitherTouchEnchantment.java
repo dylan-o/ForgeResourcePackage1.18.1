@@ -39,7 +39,10 @@ public class WitherTouchEnchantment extends Enchantment {
         return 4;
     }
 
-
+    @Override
+    protected boolean checkCompatibility(Enchantment other) {
+        return super.checkCompatibility(other) && other != PoisonTouchEnchantment.INSTANCE;
+    }
     /**
      * Called whenever a mob is damaged with an item that has this enchantment on it.
      */

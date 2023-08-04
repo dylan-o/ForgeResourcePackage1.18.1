@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "examplemod:end_rock_block"
+    }
+  ],
+  "result":
+  {
+    "item": "examplemod:end_rock",
+    "count": 9
+  }
+}

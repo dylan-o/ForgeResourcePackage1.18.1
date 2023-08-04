@@ -7,6 +7,8 @@ public class EnchantmentMod {
 
     //register enchantments
     public static void registerEnchantments(RegistryEvent.Register<Enchantment> event) {
+
+        event.getRegistry().register(PoisonTouchEnchantment.INSTANCE);
         event.getRegistry().register(WitherTouchEnchantment.INSTANCE);
         event.getRegistry().register(TunnelVisionCurse.INSTANCE);
         event.getRegistry().register(ElectricityEnchantment.INSTANCE);

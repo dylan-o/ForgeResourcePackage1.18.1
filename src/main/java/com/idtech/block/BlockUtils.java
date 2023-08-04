@@ -16,15 +16,19 @@ public class BlockUtils {
      * If you need a basic block with no extra functionality, you can use this function to create one.
      * @param name the name of the block. Must be all lowercase and contain no spaces.
      * @param material the block's material
-     * @return the constructe block with parameters
+     * @return the constructed block with parameters
      */
 
-    public static Block createBasicBlock(String name, Material material){
-        return new Block(Block.Properties.of(material)).setRegistryName(BaseMod.MODID, name);
-    }
+//    public static Block createBasicBlock(String name, Material material){
+//        return new Block(Block.Properties.of(material)).setRegistryName(BaseMod.MODID, name);
+//    }
 
     public static Block createBasicBlock(String name, Material material, float strength){
         return new Block(Block.Properties.of(material).strength(strength).requiresCorrectToolForDrops()).setRegistryName(BaseMod.MODID, name);
+    }
+
+    public static Block createBasicBlockAlwaysDrops(String name, Material material, float strength){
+        return new Block(Block.Properties.of(material).strength(strength)).setRegistryName(BaseMod.MODID, name);
     }
 
 

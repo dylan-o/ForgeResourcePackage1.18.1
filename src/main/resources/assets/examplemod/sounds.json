@@ -3,5 +3,10 @@
   { "category": "master",
     "sounds": ["examplemod:mysound"],
     "subtitle": "examplemod.subtitle.mysound",
+    "stream": true },
+  "megalovania":
+  { "category": "master",
+    "sounds": ["examplemod:megalovania"],
+    "subtitle": "examplemod.subtitle.megalovania",
     "stream": true }
 }

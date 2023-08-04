@@ -39,17 +39,33 @@ public class WorldMod {
 
     // Testing Ore Generation (https://fabricmc.net/wiki/tutorial:ores)
     // last int is vein size, not sure if its maximum or average
-    public static ConfiguredFeature<?, ?> CASTLE_WALL_TEST_FEATURE = new ConfiguredFeature(
+    public static ConfiguredFeature<?, ?> GEL_ORE_FEATURE = new ConfiguredFeature(
             Feature.ORE, new OreConfiguration(
             OreFeatures.STONE_ORE_REPLACEABLES,
-            BlockMod.CASTLE_WALL.defaultBlockState(),
+            BlockMod.GEL_ORE.defaultBlockState(),
             12));
 
     // natural ore generation
     // CountPlacement.of(veinsPerChunk)
-    public static PlacedFeature CASTLE_WALL_TEST_PLACED_FEATURE = CASTLE_WALL_TEST_FEATURE.placed(
+    public static PlacedFeature GEL_ORE_PLACED_FEATURE = GEL_ORE_FEATURE.placed(
             List.of(
-                    CountPlacement.of(150),
+                    CountPlacement.of(40),
+                    InSquarePlacement.spread(),
+                    HeightRangePlacement.uniform(VerticalAnchor.absolute(-80), VerticalAnchor.absolute(80)),
+                    BiomeFilter.biome()
+            ));
+
+    public static ConfiguredFeature<?, ?> ENDSTONE_ORE_FEATURE = new ConfiguredFeature(
+            Feature.ORE, new OreConfiguration(
+            ENDSTONE,
+            BlockMod.ENDSTONE_ORE.defaultBlockState(),
+            12));
+
+    // natural ore generation
+    // CountPlacement.of(veinsPerChunk)
+    public static PlacedFeature ENDSTONE_ORE_PLACED_FEATURE = ENDSTONE_ORE_FEATURE.placed(
+            List.of(
+                    CountPlacement.of(50),
                     InSquarePlacement.spread(),
                     HeightRangePlacement.uniform(VerticalAnchor.absolute(-80), VerticalAnchor.absolute(80)),
                     BiomeFilter.biome()
@@ -75,56 +91,65 @@ public class WorldMod {
 
     @SubscribeEvent(priority = EventPriority.HIGHEST)
     public static void addFeatures(BiomeLoadingEvent event) {
-        Biome.BiomeCategory biomeCategory = event.getCategory();
+
         BiomeGenerationSettingsBuilder biomeGen = event.getGeneration();
-        MobSpawnSettingsBuilder builder = event.getSpawns();
+        Biome.BiomeCategory biomeCategory = event.getCategory();
+        MobSpawnSettingsBuilder spawner = event.getSpawns();
+
+        // natural ore generation registration
+        FeatureUtils.register("gel_ore_feature", GEL_ORE_FEATURE);
+        PlacementUtils.register("gel_ore_placed_feature", GEL_ORE_PLACED_FEATURE);
+
+        FeatureUtils.register("endstone_ore_feature", ENDSTONE_ORE_FEATURE);
+        PlacementUtils.register("endstone_ore_placed_feature", ENDSTONE_ORE_PLACED_FEATURE);
 
         // natural ore generation
-        FeatureUtils.register("castlewallfeature", CASTLE_WALL_TEST_FEATURE);
-        PlacementUtils.register("castlewallfeature", CASTLE_WALL_TEST_PLACED_FEATURE);
-
-        // natural ore generation
-        if(event.getCategory() != Biome.BiomeCategory.THEEND && event.getCategory() != Biome.BiomeCategory.NETHER)
+        if(biomeCategory != Biome.BiomeCategory.THEEND && biomeCategory != Biome.BiomeCategory.NETHER)
         {
-            biomeGen.addFeature(GenerationStep.Decoration.UNDERGROUND_ORES, CASTLE_WALL_TEST_PLACED_FEATURE);
+            biomeGen.addFeature(GenerationStep.Decoration.UNDERGROUND_ORES, GEL_ORE_PLACED_FEATURE);
+        }
+
+        if(biomeCategory == Biome.BiomeCategory.THEEND)
+        {
+            biomeGen.addFeature(GenerationStep.Decoration.UNDERGROUND_ORES, ENDSTONE_ORE_PLACED_FEATURE);
         }
 
         // MOB SPAWNING:
         // works for custom mobs and mobs already in the game
 
-        if(event.getCategory() == Biome.BiomeCategory.JUNGLE){
+        if(biomeCategory == Biome.BiomeCategory.JUNGLE){
             // the 3 int parameters when calling SpawnerData are:
             // Spawn weight (increase to have them spawn more often)
             // Minimum group size
             // Maximum group size
-            event.getSpawns().addSpawn(MobCategory.AMBIENT,
+            spawner.addSpawn(MobCategory.AMBIENT,
                     new MobSpawnSettings.SpawnerData(JungleBatEntity.TYPE, 1, 2, 8));
         }
 
         // example of spawning for a normal minecraft mob
-        if(event.getCategory() == Biome.BiomeCategory.PLAINS){
-            event.getSpawns().addSpawn(MobCategory.CREATURE,
+        if(biomeCategory == Biome.BiomeCategory.PLAINS){
+            spawner.addSpawn(MobCategory.CREATURE,
                     new MobSpawnSettings.SpawnerData(EntityType.OCELOT, 5, 1, 3));
         }
 
-        if(event.getCategory() == Biome.BiomeCategory.MESA)
+        if(biomeCategory == Biome.BiomeCategory.MESA)
         {
-            event.getSpawns().addSpawn(MobCategory.MONSTER,
+            spawner.addSpawn(MobCategory.MONSTER,
                     new MobSpawnSettings.SpawnerData(GhostEntity.TYPE, 5, 1, 1));
         }
 
-        if(event.getCategory() == Biome.BiomeCategory.THEEND){
-            event.getSpawns().addSpawn(MobCategory.MONSTER,
+        if(biomeCategory == Biome.BiomeCategory.THEEND){
+            spawner.addSpawn(MobCategory.MONSTER,
                     new MobSpawnSettings.SpawnerData(GhostEntity.TYPE, 2, 1, 1));
         }
 
-        if(event.getCategory() == Biome.BiomeCategory.NETHER){
-            event.getSpawns().addSpawn(MobCategory.MONSTER,
+        if(biomeCategory == Biome.BiomeCategory.NETHER){
+            spawner.addSpawn(MobCategory.MONSTER,
                     new MobSpawnSettings.SpawnerData(GhostEntity.TYPE, 1, 1, 1));
         }
 
-        if(event.getCategory() == Biome.BiomeCategory.NETHER){
-            event.getSpawns().addSpawn(MobCategory.CREATURE,
+        if(biomeCategory == Biome.BiomeCategory.NETHER){
+            spawner.addSpawn(MobCategory.CREATURE,
                     new MobSpawnSettings.SpawnerData(EntityType.WOLF, 5, 1, 18));
         }
     }

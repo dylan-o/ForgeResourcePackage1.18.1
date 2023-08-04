@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "x",
+    "y",
+    "y"
+  ],
+  "key": {
+    "x": {
+      "item": "examplemod:end_rock"
+    },
+    "y": {
+      "item": "minecraft:stick"
+    }
+  },
+  "result": {
+    "item": "examplemod:endershovel"
+  }
+}

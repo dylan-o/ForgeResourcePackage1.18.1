@@ -1,13 +1,16 @@
 {
   "block.examplemod.gel_ore": "Gel Ore",
   "block.examplemod.endstone_ore": "Endstone Ore",
+  "block.examplemod.end_rock_block": "Block of End Rock",
   "block.examplemod.ember_block": "Block of Embers",
   "block.examplemod.castlewall": "Castle Wall",
   "block.examplemod.gel_block": "Gel Block",
   "block.examplemod.creeper_surprise_block": "Creeper Surprise Block",
+  "block.examplemod.stinky_flesh_block": "Stinky Flesh Block",
 
   "enchantment.examplemod.electricity": "Electricity",
   "enchantment.examplemod.wither_touch": "Wither Touch",
+  "enchantment.examplemod.poison_touch": "Poison Touch",
   "enchantment.examplemod.blind_fighter": "Curse of Tunnel Vision",
   "enchantment.examplemod.enemy_spawn_curse": "Curse of Battle",
 
@@ -36,11 +39,22 @@
   "item.examplemod.overworldhelmet": "Overworld Helmet",
   "item.examplemod.enderpickaxe": "Ender Pickaxe",
   "item.examplemod.enderaxe": "Ender Axe",
+  "item.examplemod.endershovel": "Ender Shovel",
+  "item.examplemod.endersword": "Ender Sword",
+  "item.examplemod.enderhoe": "Ender Hoe",
   "item.examplemod.end_rock": "End Rock",
   "item.examplemod.zoosword": "Zoo Sword",
   "item.examplemod.fireballwand": "Fireball Wand",
   "item.examplemod.bombarrow": "Bomb Arrow",
   "item.examplemod.lightningarrow": "Lightning Arrow",
+  "item.examplemod.yummyfood": "Yummy Food",
+  "item.examplemod.yuckyfood": "Yucky Food",
+  "item.examplemod.custom_music_disc": "Custom Music Disc",
+  "item.examplemod.custom_music_disc.desc": "Sauce - My custom sound",
+  "item.examplemod.megalovania_music_disc": "Music Disc",
+  "item.examplemod.megalovania_music_disc.desc": "Megalovania - Toby Fox",
+  "item.examplemod.cave_sound_music_disc": "Music Disc",
+  "item.examplemod.cave_sound_music_disc.desc": "ooooooh spooooooky!",
 
   "itemGroup.examplemodtab": "Mod Items"
 }

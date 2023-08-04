@@ -2,6 +2,7 @@
   "replace": false,
   "values": [
     "examplemod:gel_ore",
-    "examplemod:endstone_ore"
+    "examplemod:endstone_ore",
+    "examplemod:end_rock_block"
   ]
 }

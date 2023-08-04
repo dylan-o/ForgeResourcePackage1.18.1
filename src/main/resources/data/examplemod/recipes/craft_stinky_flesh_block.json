@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "   ",
+    " x ",
+    "   "
+  ],
+  "key": {
+    "x": {
+      "item": "minecraft:rotten_flesh"
+    }
+  },
+  "result": {
+    "item": "examplemod:stinky_flesh_block"
+  }
+}
+

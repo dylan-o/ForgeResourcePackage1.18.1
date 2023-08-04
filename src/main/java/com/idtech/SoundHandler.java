@@ -11,9 +11,11 @@ public class SoundHandler
 {
     // Add sounds variables here
     public static SoundEvent mySound;
+    public static SoundEvent megalovaniaSound;
 
     static {
         mySound = addSoundInfo("mysound");
+        megalovaniaSound = addSoundInfo("megalovania");
     }
 
     private static SoundEvent addSoundInfo(String soundPath) {
@@ -26,5 +28,6 @@ public class SoundHandler
     @SubscribeEvent
     public void registerSounds(RegistryEvent.Register<SoundEvent> event)   {
         event.getRegistry().register(mySound);
+        event.getRegistry().register(megalovaniaSound);
     }
 }

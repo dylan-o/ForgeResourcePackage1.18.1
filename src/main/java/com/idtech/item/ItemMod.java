@@ -2,8 +2,13 @@ package com.idtech.item;
 
 import com.idtech.ModTab;
 import com.idtech.item.tools.*;
-import net.minecraft.world.item.CreativeModeTab;
+import net.minecraft.world.effect.MobEffectInstance;
+import net.minecraft.world.effect.MobEffects;
+import net.minecraft.world.food.FoodProperties;
 import net.minecraft.world.item.Item;
+import net.minecraft.world.item.Tier;
+import net.minecraft.world.item.crafting.Ingredient;
+import net.minecraftforge.common.ForgeTier;
 import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
@@ -19,7 +24,14 @@ public class ItemMod {
 
     //FOODS
 
+    public static FoodProperties yummyFood = (new FoodProperties.Builder().nutrition(5).saturationMod(1.4f)
+            .effect(new MobEffectInstance(MobEffects.MOVEMENT_SPEED, 500, 1), 1.0f)
+            .alwaysEat().build());
+    public static Item yummyFoodItem = ItemUtils.buildFoodItem("yummyfood", yummyFood);
 
+    // TOOL TIERS
+    public static Tier ENDER_TIER = new ForgeTier(5, 2400, 10.0F, 5.0F, 10, null, ()->{return Ingredient.of(ItemMod.END_ROCK);});
+    public static Tier GEL_TIER = new ForgeTier(2, 100, 3.0f, 0.0F, 25, null, ()->{return Ingredient.of(ItemMod.GEL);});
 
     @SubscribeEvent
     public static void registerItems(RegistryEvent.Register<Item> event) {
@@ -35,7 +47,9 @@ public class ItemMod {
         event.getRegistry().register(TeleportRodItem.INSTANCE);
         event.getRegistry().register(CustomTridentItem.INSTANCE);
         event.getRegistry().register(ZooSwordItem.INSTANCE);
-
+        event.getRegistry().register(CustomMusicDisc.INSTANCE);
+        event.getRegistry().register(MegalovaniaMusicDisc.INSTANCE);
+        event.getRegistry().register(CaveSoundMusicDisc.INSTANCE);
 
         // TOOLS
         event.getRegistry().register(GelPickaxeItem.INSTANCE);
@@ -45,8 +59,13 @@ public class ItemMod {
         event.getRegistry().register(GelHoeItem.INSTANCE);
         event.getRegistry().register(EnderPickaxeItem.INSTANCE);
         event.getRegistry().register(EnderAxeItem.INSTANCE);
+        event.getRegistry().register(EnderShovelItem.INSTANCE);
+        event.getRegistry().register(EnderSwordItem.INSTANCE);
+        event.getRegistry().register(EnderHoeItem.INSTANCE);
 
         // FOOD
+        event.getRegistry().register(yummyFoodItem);
+        event.getRegistry().register(YuckyFoodItem.INSTANCE);
 
         // ARMOR
         event.getRegistry().register(CustomArmorItem.HELM);
